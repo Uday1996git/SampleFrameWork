@@ -1,0 +1,5 @@
+18:10:00.197 [main] INFO  com.DemoProject.TestCases.BaseClass - Navigated to the url provided
+18:10:00.201 [main] WARN  com.DemoProject.TestCases.BaseClass - Wait
+18:10:00.488 [main] INFO  com.DemoProject.TestCases.BaseClass - Entered the Username
+18:10:00.599 [main] INFO  com.DemoProject.TestCases.BaseClass - Entered Password
+18:10:00.680 [main] INFO  com.DemoProject.TestCases.BaseClass - The page title matches with the expected title

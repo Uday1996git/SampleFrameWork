@@ -1,0 +1,4 @@
+18:12:12.606 [main] INFO  com.DemoProject.TestCases.BaseClass - Navigated to the url provided
+18:12:12.608 [main] WARN  com.DemoProject.TestCases.BaseClass - Wait
+18:12:12.711 [main] INFO  com.DemoProject.TestCases.BaseClass - Entered the Username
+18:12:12.782 [main] INFO  com.DemoProject.TestCases.BaseClass - Entered Password
