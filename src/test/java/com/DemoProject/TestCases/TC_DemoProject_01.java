@@ -16,12 +16,16 @@ public class TC_DemoProject_01 extends BaseClass{
 		lp.SetUserName(Username);
 		logger.info("Entered the Username");
 		lp.SetPassword(Password);
+		logger.info("Entered Password");
+		lp.ClickLogin();
 		System.out.println(webDriver.getTitle());
 		if(webDriver.getTitle().equals("GTPL Bank Home Page")) {
 			Assert.assertTrue(true);
+			logger.info("The page title matches with the expected title");
 		}
 		else {
 			Assert.assertTrue(false);
+			logger.info("The page title don't match with the expected title");
 		}
 	}
 }

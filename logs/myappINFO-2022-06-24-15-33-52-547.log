@@ -1,3 +1,0 @@
-15:34:02.935 [main] INFO  com.DemoProject.TestCases.BaseClass - Navigated to the url provided
-15:34:02.938 [main] WARN  com.DemoProject.TestCases.BaseClass - Wait
-15:34:03.033 [main] INFO  com.DemoProject.TestCases.BaseClass - Entered the Username
