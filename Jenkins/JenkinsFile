@@ -7,11 +7,10 @@ pipeline{
                     }
                 }
             }            
-        }
+        
         post{
             always{
                 echo 'Say Hello again'
             }
         }
-
-
+}
