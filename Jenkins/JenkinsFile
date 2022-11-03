@@ -1,9 +1,8 @@
 pipeline{ 
     agent any    
         stages{           
-            stage(){                  
+            stage('FrameworkSample'){                  
                     steps{
-                        
                         echo 'Hello world'
                     }
                 }
