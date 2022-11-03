@@ -1,8 +1,7 @@
 pipeline{ 
     agent any    
         stages{           
-            stage('Test'){               
-                script{     
+            stage(){                  
                     steps{
                         
                         echo 'Hello world'
@@ -15,6 +14,5 @@ pipeline{
                 echo 'Say Hello again'
             }
         }
-    }
-    
+
 
