@@ -1,10 +1,7 @@
 properties([ 
 	parameters([
-	booleanParam(name: 'Jenkins', description:'Keep this checked if you want to run this project Jenkins file', default:true)
+	booleanParam(name: 'Jenkins', description:'Keep this checked if you want to run this project Jenkins file', defaulValuet:true)
 	])
-	    
-	   
-
  ])
 
 pipeline{ 
