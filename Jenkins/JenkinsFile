@@ -1,6 +1,7 @@
 properties([ 
 	parameters([
-	booleanParam(name: 'Jenkins',defaulValue: true,description:'Keep this checked if you want to run this project Jenkins file' )
+	string(name: 'Jenkins',description:'Keep this checked if you want to run this project Jenkins file' )
+	
 	])
  ])
 
@@ -11,8 +12,14 @@ pipeline{
             stage('FrameworkSample'){                  
                     steps{
                         echo 'Hello world'
+                        echo "Hello ${params.Jenkins}" 
                     }
                 }
+                stage('Execute Web Browsers'){
+                    
+                    
+                }
+
             }            
         
         post{
