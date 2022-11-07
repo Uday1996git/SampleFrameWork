@@ -1,5 +1,6 @@
 properties([ 
 	parameters([
+	booleanParam(name: 'Refresh', defaultValue: false, description: 'Read Jenkinsfile and exit.'),
 	string(name: 'Jenkins',description:'Keep this checked if you want to run this project Jenkins file' )
 	
 	])
@@ -8,7 +9,17 @@ properties([
 pipeline{ 
 
     agent any    
-        stages{           
+        stages{ 
+          stage('Read Jenkinsfile') {
+            when {
+                expression {
+                    return params.Refresh == true
+                }
+            }
+            steps {
+                echo "Jenkinsfile reloaded successfully and Exiting early"
+            }
+        }          
             stage('FrameworkSample'){                  
                     steps{
                         echo 'Hello world'
