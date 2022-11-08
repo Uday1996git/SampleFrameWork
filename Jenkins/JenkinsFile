@@ -34,48 +34,35 @@ pipeline{
                     steps{
                   		  script{
                           if(params.Login){
-                        
                         echo 'Run the login method'
                     }
                     else {
                         echo 'Run the Application method'
-                    }
-                        
-                    }                  
-                   
-
-                        echo 'Hello world'
+                    }   
+                    }   
+                      echo 'Hello world'
                         echo "Hello ${params.Jenkins}" 
                         echo "You have selected ${params.Feature}"
                     }
                 }
                 stage('Execute the Feature'){
 						steps{
-						    
 						    script{
-						        
 						        Fee.each{
-						            
 						            entity->stage(entity.key){
-						                
-						                echo "${entity.key}"
+						                echo "The selected value is ${entity.key}"
+						                if(entity.value){
+						                echo "${entity.value}"
+						                    catchError{
+						                        sh 'might fail'
+						                    }
+
+						                }
 						            }
-
 						        }
-
 						    }
-
-						}
-
-                   
-
+						} 
                 }
-{
-                    
-                    
-                }
-
-
             }            
         
         post{
