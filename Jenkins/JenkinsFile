@@ -25,6 +25,7 @@ pipeline{
                     steps{
                         echo 'Hello world'
                         echo "Hello ${params.Jenkins}" 
+                        echo "You have selected ${params.Feature}"
                     }
                 }
 
