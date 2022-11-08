@@ -6,9 +6,19 @@ properties([
 	booleanParam(name:'Application',defaultValue:false, description:'select Application feature to run'),
 	booleanParam(name:'TearDown',defaultValue:false, description:'select TearDown feature to run'),
 	booleanParam(name:'AddTemplate',defaultValue:false, description:'select AddTemplate feature to run'),
+	booleanParam(name:'Chrome',defaultValue:false, description:'select Chrome to run'),
+	booleanParam(name:'Firefox',defaultValue:false, description:'select Firefox to run'),
+	booleanParam(name:'Edge',defaultValue:false, description:'select Edge to run'),
+	booleanParam(name:'Safari',defaultValue:false, description:'select Safari to run'),
 	])
  ])
- 
+ def web =[ 
+ Chrome:params.Chrome,
+ Firefox:params.Firefox,
+ Edge:params.Edge,
+ Safari:params.Safari
+  ]
+  
  def Fee=[ 
  Login: params.Login,
  Application: params.Application,
@@ -48,9 +58,12 @@ pipeline{
                 stage('Execute the Feature'){
 						steps{
 						    script{
-						        Fee.each{
+						    web.each{
+						    entity1->stage(entity1.key)
+						    if(entity1.value){
+						    echo "${entity1.key}"
+						       Fee.each{
 						            entity->stage(entity.key){
-						
 						                if(entity.value){
 						                echo "${entity.key}"
 						                echo "${entity.value}"
@@ -60,7 +73,9 @@ pipeline{
 
 						                }
 						            }
-						        }
+						        }  
+						    } 
+						      }
 						    }
 						} 
                 }
