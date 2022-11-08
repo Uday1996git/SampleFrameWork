@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Maths">
+<test name="SimpleMaths">
+<method-selectors>
+<method-selector>
+<script language="beanshell">
+<![CDATA[groupname=System.getProperty("testGroupToRun");
+         groups.containsKey(groupname);
+       ]]>
+</script>
+</method-selector>
+</method-selectors>
+<classes>
+<class name="SampleCalculations.SampleMaths">
+</class>
+</classes>
+</test>
+</suite>
