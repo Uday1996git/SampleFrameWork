@@ -2,7 +2,8 @@ properties([
 	parameters([
 	booleanParam(name: 'Refresh', defaultValue: false, description: 'Read Jenkinsfile and exit.'),
 	string(name: 'Jenkins',description:'Keep this checked if you want to run this project Jenkins file' ),
-	choice(name:'Feature', choices:[ 'Login', 'DataSetTeamplate'], description:'select the feature to run')
+	booleanParam(name:'Login',defaultValue:true, description:'select login feature to run'),
+	booleanParam(name:'Application',defaultValue:true, description:'select Application feature to run')
 	
 	])
  ])
@@ -23,6 +24,12 @@ pipeline{
         }          
             stage('FrameworkSample'){                  
                     steps{
+                    if(param.Login){
+                        
+                        echo 'Run the login method'
+                    }
+                    echo 'Run the Application method'
+
                         echo 'Hello world'
                         echo "Hello ${params.Jenkins}" 
                         echo "You have selected ${params.Feature}"
