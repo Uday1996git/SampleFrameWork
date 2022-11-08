@@ -54,7 +54,7 @@ pipeline{
 						                if(entity.value){
 						                echo "${entity.value}"
 						                    catchError{
-						                        sh 'might fail'
+						                        echo 'might fail'
 						                    }
 
 						                }
