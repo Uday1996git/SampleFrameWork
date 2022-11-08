@@ -50,7 +50,9 @@ pipeline{
 						    script{
 						        Fee.each{
 						            entity->stage(entity.key){
+						
 						                if(entity.value){
+						                echo "${entity.key}"
 						                echo "${entity.value}"
 						                    catchError{
 						                        echo 'might fail'
