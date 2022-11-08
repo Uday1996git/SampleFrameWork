@@ -2,8 +2,8 @@ properties([
 	parameters([
 	booleanParam(name: 'Refresh', defaultValue: false, description: 'Read Jenkinsfile and exit.'),
 	string(name: 'Jenkins',description:'Keep this checked if you want to run this project Jenkins file' ),
-	booleanParam(name:'Login',defaultValue:true, description:'select login feature to run'),
-	booleanParam(name:'Application',defaultValue:true, description:'select Application feature to run')
+	booleanParam(name:'Login',defaultValue:false, description:'select login feature to run'),
+	booleanParam(name:'Application',defaultValue:false, description:'select Application feature to run')
 	
 	])
  ])
@@ -28,7 +28,11 @@ pipeline{
                           if("${params.Login}"){
                         
                         echo 'Run the login method'
-                    }                        
+                    }
+                    else {
+                        echo 'Run the Application method'
+                    }
+                        
                     }                  
                     echo 'Run the Application method'
 
