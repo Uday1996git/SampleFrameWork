@@ -24,10 +24,12 @@ pipeline{
         }          
             stage('FrameworkSample'){                  
                     steps{
-                    if(param.Login){
+                  		  script{
+                          if(param.Login){
                         
                         echo 'Run the login method'
-                    }
+                    }                        
+                    }                  
                     echo 'Run the Application method'
 
                         echo 'Hello world'
