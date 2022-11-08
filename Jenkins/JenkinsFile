@@ -25,7 +25,7 @@ pipeline{
             stage('FrameworkSample'){                  
                     steps{
                   		  script{
-                          if("${params.Login}"){
+                          if(params.Login){
                         
                         echo 'Run the login method'
                     }
