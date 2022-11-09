@@ -91,7 +91,7 @@ pipeline{
                                         script{
                                             Groups.each{
                                             def Group =it.key
-                                                echo Group                                           }
+                                                echo "${Group}"                                           }
 
                                         }
 
