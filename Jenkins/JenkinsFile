@@ -63,11 +63,11 @@ pipeline{
 						    script{
 						      for (e in web){
 						            if(e.value){
-    											echo '${e.key}'
+    											echo "${e.key}"
     												stage(e.key){
     												    for (w in Fee){
     												               if(w.value){
-    												               echo '${w.key}'
+    												               echo "${w.key}"
     												                   stage(w.key){
     												                       echo "Hello in the for loop"
     												                   }
