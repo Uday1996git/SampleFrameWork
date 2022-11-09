@@ -66,14 +66,14 @@ pipeline{
 						    web.each{
 						    if(it.value){
 						       stage(it.key)
-						       echo "${entity1.key}"
+						       echo "${it.key}"
 						       Fee.each{
 						       if(it.value){
 						           stage(it.key)
-						           echo "${entity.key}"
-						                echo "${entity.value}"
-						                echo "${entity1.key}"
-						        Groups << "${entity.key}"
+						           echo "${it.key}"
+						                echo "${it.value}"
+						                echo "${it.key}"
+						        Groups << "${it.key}"
 						       }
 						       catchError{
 						                        echo 'might fail'
