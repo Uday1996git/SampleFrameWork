@@ -67,7 +67,8 @@ pipeline{
 						    if(it.value){
 						       stage(it.key){
 						          def browser= "${it.key}"
-						       Fee.each{
+						          catchError{
+						             Fee.each{
 						       if(it.value){
 						           stage(it.key){
 						           echo "${browser}"
@@ -75,11 +76,12 @@ pipeline{
 						                echo "${it.key}"
 						        Groups << "${it.key}"
 						       }
-						       catchError{
-						                        echo 'might fail'
-						                }
+						      
 						      }
-						       }
+						       }  
+						          }
+
+						      
 						       }
 						    }
 						} 
