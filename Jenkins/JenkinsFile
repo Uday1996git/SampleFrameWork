@@ -65,11 +65,11 @@ pipeline{
 						    script{
 						    web.each{
 						    if(it.value){
-						       stage(it.key)
-						       echo "${it.key}"
+						       stage(it.key){
+						           echo "${it.key}"
 						       Fee.each{
 						       if(it.value){
-						           stage(it.key)
+						           stage(it.key){
 						           echo "${it.key}"
 						                echo "${it.value}"
 						                echo "${it.key}"
@@ -79,6 +79,8 @@ pipeline{
 						                        echo 'might fail'
 						                }
 						      }
+						       }
+						       }
 						    }
 						} 
                 }
@@ -88,8 +90,8 @@ pipeline{
                                     steps{
                                         script{
                                             Groups.each{
-                                                echo println it
-                                            }
+                                                entity->entity.key
+                                                echo "${entity.key}"                                           }
 
                                         }
 
