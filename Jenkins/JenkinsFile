@@ -90,7 +90,7 @@ pipeline{
                                     steps{
                                         script{
                                             Groups.each{
-                                            def Group =it.key
+                                            def Group =it
                                                 echo "${Group}"                                           }
 
                                         }
