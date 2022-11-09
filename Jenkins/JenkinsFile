@@ -86,7 +86,17 @@ pipeline{
                 }
                 }
                 }
+					stage('Read the Group List'){
+                                    steps{
+                                        script{
+                                            Groups.each{
+                                                echo it                                           }
 
+                                        }
+
+                                    }
+
+                                }
                 
             }            
         
