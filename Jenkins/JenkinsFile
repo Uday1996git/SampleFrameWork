@@ -63,22 +63,10 @@ pipeline{
 						    script{
 						    web.each{
 						    entity1->stage(entity1.key){
-						    when{
-						        expression{
-						            return entity1.value==true
-						        }
-
-						    }
 						    if(entity1.value){
 						    echo "${entity1.key}"
 						       Fee.each{
 						            entity->stage(entity.key){
-						            when{
-						                expression{
-						                    return entity.value==true
-						                }
-
-						            }
 						                if(entity.value){
 						                echo "${entity.key}"
 						                echo "${entity.value}"
