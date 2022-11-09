@@ -61,26 +61,21 @@ pipeline{
                 stage('Execute the Feature'){
 						steps{
 						    script{
-						    web.each{
-						    entity1->stage(entity1.key){
-						    if(entity1.value){
-						    echo "${entity1.key}"
-						       Fee.each{
-						            entity->(entity.key){
-						                if(entity.value){
-						                echo "${entity.key}"
-						                echo "${entity.value}"
-						                echo "${entity1.key}"
-						                    catchError{
-						                        echo 'might fail'
-						                }
-						                }
-						            }
-						            }
-						            
-						        }  
-						    } 
-						      }
+						      for (e in web){
+						            if(e.value){
+    												stage(e.key){
+    												    for (w in Fee){
+    												               if(w.value){
+    												                   stage(w.key){
+    												                       echo "Hello in the for loop"
+    												                   }
+
+    												               }
+
+    												           }
+    												}
+											}
+						             }
 						    }
 						} 
                 }
