@@ -28,6 +28,8 @@ properties([
  TearDown: params.TearDown,
  AddTemplate : params.AddTemplate
   ]
+  
+  def Groups = new ArrayList()
 
 pipeline{ 
 
@@ -71,10 +73,13 @@ pipeline{
 						                echo "${entity.key}"
 						                echo "${entity.value}"
 						                echo "${entity1.key}"
+						                }
+						                Groups.add("${entity.key}")
+						                echo "${entity.key}"
 						                    catchError{
 						                        echo 'might fail'
 						                }
-						                }
+						                
 						            }
 						            }
 						            
@@ -89,6 +94,7 @@ pipeline{
         
         post{
             always{
+            echo Groups
                 echo 'Say Hello again'
             }
         }
