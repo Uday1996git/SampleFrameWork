@@ -64,38 +64,46 @@ pipeline{
 						steps{
 						    script{
 						    web.each{
-						    entity1->stage(entity1.key){
-						    if(entity1.value){
-						    echo "${entity1.key}"
+						    if(it.value){
+						       stage(it.key)
+						       echo "${entity1.key}"
 						       Fee.each{
-						            entity->stage(entity.key){
-						                if(entity.value){
-						                echo "${entity.key}"
+						       if(it.value){
+						           stage(it.key)
+						           echo "${entity.key}"
 						                echo "${entity.value}"
 						                echo "${entity1.key}"
-						                }
-						                Groups << "${entity.key}"
-						                echo "${entity.key}"
-						                    catchError{
+						        Groups << "${entity.key}"
+						       }
+						       catchError{
 						                        echo 'might fail'
 						                }
-						                
-						            }
-						            }
-						            
-						        }  
-						    } 
-						    
 						      }
 						    }
 						} 
                 }
+                }
+                }
+                stage('Read the Group List'){
+                                    steps{
+                                        script{
+                                            Groups.each{
+                                                echo println it
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+
+                
             }            
-        
+        }
         post{
             always{
            
                 echo 'Say Hello again'
             }
         }
-}
+
