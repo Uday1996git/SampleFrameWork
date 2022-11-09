@@ -66,15 +66,14 @@ pipeline{
 						    if(entity1.value){
 						    echo "${entity1.key}"
 						       Fee.each{
-						            entity->stage(entity.key){
+						            entity->(entity.key){
 						                if(entity.value){
 						                echo "${entity.key}"
 						                echo "${entity.value}"
 						                echo "${entity1.key}"
 						                    catchError{
 						                        echo 'might fail'
-						                    }
-
+						                }
 						                }
 						            }
 						            }
