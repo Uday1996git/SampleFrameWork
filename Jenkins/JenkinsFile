@@ -66,11 +66,11 @@ pipeline{
 						    web.each{
 						    if(it.value){
 						       stage(it.key){
-						           echo "${it.key}"
+						          def browser= "${it.key}"
 						       Fee.each{
 						       if(it.value){
 						           stage(it.key){
-						           echo "${it.key}"
+						           echo "${browser}"
 						                echo "${it.value}"
 						                echo "${it.key}"
 						        Groups << "${it.key}"
