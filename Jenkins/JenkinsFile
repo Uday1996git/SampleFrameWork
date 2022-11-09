@@ -49,15 +49,15 @@ pipeline{
                     steps{
                   		  script{
                           if(params.Login){
-                        echo 'Run the login method'
+                        //echo 'Run the login method'
                     }
                     else {
-                        echo 'Run the Application method'
+                        //echo 'Run the Application method'
                     }   
                     }   
-                      echo 'Hello world'
-                        echo "Hello ${params.Jenkins}" 
-                        echo "You have selected ${params.Feature}"
+                     // echo 'Hello world'
+                       // echo "Hello ${params.Jenkins}" 
+                       // echo "You have selected ${params.Feature}"
                     }
                 }
                 stage('Execute the Feature'){
