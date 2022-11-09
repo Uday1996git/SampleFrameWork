@@ -86,18 +86,6 @@ pipeline{
                 }
                 }
                 }
-                stage('Read the Group List'){
-                                    steps{
-                                        script{
-                                            Groups.each{
-                                                entity->entity.key
-                                                echo "${entity.key}"                                           }
-
-                                        }
-
-                                    }
-
-                                }
 
                 
             }            
