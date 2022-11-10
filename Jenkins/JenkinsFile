@@ -117,6 +117,7 @@ pipeline{
                 }
                 }
                 stage('read Parameter'){
+                steps{
                     script{
                         stageName.each{
                             stage(it){
@@ -126,7 +127,7 @@ pipeline{
                         }
 
                     }
-
+                }
                 }
 
 					//stage('Read the Group List'){
