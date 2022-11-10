@@ -50,7 +50,7 @@ properties([
       }
   }
 
-  
+ 
 
 echo"3"
 pipeline{ 
@@ -67,7 +67,7 @@ pipeline{
                 echo "Jenkinsfile reloaded successfully and Exiting early"
             }
         }          
-            stage('FrameworkSample'){                  
+            stage("${Group}"){                  
                     steps{
                   		  script{
                   		  
