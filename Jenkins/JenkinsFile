@@ -120,7 +120,7 @@ pipeline{
                 steps{
                     script{
                         stageName.each{
-                            stage(it){
+                            stage('Running'+it){
                                 echo "We are inside the read parameter"
                             }
 
