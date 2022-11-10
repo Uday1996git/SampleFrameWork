@@ -58,7 +58,7 @@ pipeline{
                   		  def FeaturesSelected=[]
 								  Fee.each{
 								      if(it.value){
-								          FeaturesSelected<<it
+								          FeaturesSelected << "${it.key}"
 								      }
 								  }
 								  
