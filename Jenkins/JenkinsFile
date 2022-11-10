@@ -40,7 +40,7 @@ properties([
       }
   }
 								  
-   String Group= ""
+ def Group= ""
   FeaturesSelected.eachWithIndex{
       feature,i->if(i==0){
           Group=feature
@@ -49,6 +49,9 @@ properties([
           Group=Group+","+feature
       }
   }
+  
+  def stageName=[]
+  stageName<<Group
 
  
 
@@ -67,7 +70,7 @@ pipeline{
                 echo "Jenkinsfile reloaded successfully and Exiting early"
             }
         }          
-            stage("${Group}"){                  
+            stage('${Group}'){                  
                     steps{
                   		  script{
                   		  
@@ -113,6 +116,19 @@ pipeline{
                 }
                 }
                 }
+                stage('read Parameter'){
+                    script{
+                        stageName.each{
+                            stage(it){
+                                echo "We are inside the read parameter"
+                            }
+
+                        }
+
+                    }
+
+                }
+
 					//stage('Read the Group List'){
                                    // steps{
                                        // script{
