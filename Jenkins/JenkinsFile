@@ -33,7 +33,7 @@ properties([
   def FeaturesSelected=[]
   Fee.each{
       if(it.value){
-          FeatureSelected<<it
+          FeaturesSelected<<it
       }
   }
 
@@ -94,7 +94,6 @@ pipeline{
 						           echo "${browser}"
 						                echo "${it.value}"
 						                echo "${it.key}"
-						                echo "${Groups}"
 						        Groups << "${it.key}"
 						       }
 						      
