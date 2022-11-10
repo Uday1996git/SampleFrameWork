@@ -30,23 +30,10 @@ properties([
  AddTemplate : params.AddTemplate
   ]
   
-  def FeaturesSelected=[]
-  Fee.each{
-      if(it.value){
-          FeaturesSelected<<it
-      }
-  }
+  
 
   echo "2"
-  def Groups= ""
-  FeaturesSelected.eachWithIndex{
-      feature,i->if(i==0){
-          Groups=feature
-      }
-      if(i>0){
-          Groups=Groups+","+feature
-      }
-  }
+ 
 
   
 echo "${Groups}"
@@ -68,6 +55,23 @@ pipeline{
             stage('FrameworkSample'){                  
                     steps{
                   		  script{
+                  		  def FeaturesSelected=[]
+								  Fee.each{
+								      if(it.value){
+								          FeaturesSelected<<it
+								      }
+								  }
+								  
+								   def Groups= ""
+									  FeaturesSelected.eachWithIndex{
+									      feature,i->if(i==0){
+									          Groups=feature
+									      }
+									      if(i>0){
+									          Groups=Groups+","+feature
+									      }
+									  }
+									  echo "${Groups}"
                           if(params.Login){
                         //echo 'Run the login method'
                     }
