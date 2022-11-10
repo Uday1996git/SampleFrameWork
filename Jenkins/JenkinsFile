@@ -49,7 +49,7 @@ properties([
   }
 
   
-
+echo "${Groups}"
 echo"3"
 pipeline{ 
 
