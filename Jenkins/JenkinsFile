@@ -33,7 +33,22 @@ properties([
   
 
   echo "2"
- 
+ def FeaturesSelected=[]
+  Fee.each{
+      if(it.value){
+  FeaturesSelected << "${it.key}"
+      }
+  }
+								  
+   def Group= ""
+  FeaturesSelected.eachWithIndex{
+      feature,i->if(i==0){
+          Group=feature
+      }
+      if(i>0){
+          Group=Group+","+feature
+      }
+  }
 
   
 
@@ -55,22 +70,7 @@ pipeline{
             stage('FrameworkSample'){                  
                     steps{
                   		  script{
-                  		  def FeaturesSelected=[]
-								  Fee.each{
-								      if(it.value){
-								          FeaturesSelected << "${it.key}"
-								      }
-								  }
-								  
-								   def Group= ""
-									  FeaturesSelected.eachWithIndex{
-									      feature,i->if(i==0){
-									          Group=feature
-									      }
-									      if(i>0){
-									          Group=Group+","+feature
-									      }
-									  }
+                  		  
 									  echo "${Group}"
                           if(params.Login){
                         //echo 'Run the login method'
