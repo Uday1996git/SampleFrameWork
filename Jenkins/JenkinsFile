@@ -13,6 +13,7 @@ properties([
 	booleanParam(name:'Firefox',defaultValue:false, description:'select Firefox to run'),
 	booleanParam(name:'Edge',defaultValue:false, description:'select Edge to run'),
 	booleanParam(name:'Safari',defaultValue:false, description:'select Safari to run'),
+	
 	])
  ])
  def web =[ 
@@ -29,7 +30,26 @@ properties([
  AddTemplate : params.AddTemplate
   ]
   
-  def Groups = []
+  def FeaturesSelected=[]
+  Fee.each{
+      if(it.value){
+          FeatureSelected<<it
+      }
+  }
+
+  
+  def Groups= ""
+  FeaturesSelected.eachWithIndex{
+      feature,i->if(i==0){
+          Groups=feature
+      }
+      if(i>0){
+          Groups=Groups+","+feature
+      }
+  }
+
+  
+
 
 pipeline{ 
 
@@ -74,6 +94,7 @@ pipeline{
 						           echo "${browser}"
 						                echo "${it.value}"
 						                echo "${it.key}"
+						                echo "${Groups}"
 						        Groups << "${it.key}"
 						       }
 						      
@@ -85,13 +106,7 @@ pipeline{
 						       }
 						    }
 						} 
-						def templates = ["Temp1","Temp2","Temp3"]
-						    sh """
-						        for v in ${templates.join(' ')}
-						        do
-						            echo \$v
-						        done
-						    """
+						
                 }
                 }
                 }
