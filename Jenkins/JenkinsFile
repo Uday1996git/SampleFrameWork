@@ -85,6 +85,13 @@ pipeline{
 						       }
 						    }
 						} 
+						def templates = ["Temp1","Temp2","Temp3"]
+						    sh """
+						        for v in ${templates.join(' ')}
+						        do
+						            echo \$v
+						        done
+						    """
                 }
                 }
                 }
