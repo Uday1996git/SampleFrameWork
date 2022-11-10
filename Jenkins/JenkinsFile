@@ -40,7 +40,7 @@ properties([
       }
   }
 								  
- def Group= ""
+ String Group= ""
   FeaturesSelected.eachWithIndex{
       feature,i->if(i==0){
           Group=feature
@@ -120,7 +120,7 @@ pipeline{
                 steps{
                     script{
                         stageName.each{
-                            stage(it.key){
+                            stage(it){
                                 echo "We are inside the read parameter"
                             }
 
