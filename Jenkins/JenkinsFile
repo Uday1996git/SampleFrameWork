@@ -40,18 +40,10 @@ properties([
       }
   }
 								  
- String Group= ""
-  FeaturesSelected.eachWithIndex{
-      feature,i->if(i==0){
-          Group=feature
-      }
-      if(i>0){
-          Group=Group+","+feature
-      }
-  }
+ 
   
-  def stageName=[]
-  stageName<<Group
+  //def stageName=[]
+ // stageName<<Group
 
  echo "${stageName}"
 
@@ -119,12 +111,21 @@ pipeline{
                 stage('read Parameter'){
                 steps{
                     script{
-                        stageName.each{
-                            stage('Running'+it){
+                    String Group= ""
+							  FeaturesSelected.eachWithIndex{
+							      feature,i->if(i==0){
+							          Group=feature
+							      }
+							      if(i>0){
+							          Group=Group+","+feature
+							      }
+							  }
+                     //   stageName.each{
+                            stage("Running ${Group}"){
                                 echo "We are inside the read parameter"
                             }
 
-                        }
+                        //}
 
                     }
                 }
