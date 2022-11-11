@@ -29,15 +29,7 @@ properties([
  TearDown: params.TearDown,
  AddTemplate : params.AddTemplate
   ]
-  String Group= ""
-  FeaturesSelected.eachWithIndex{
-      feature,i->if(i==0){
-          Group=feature
-      }
-      if(i>0){
-          Group=Group+","+feature
-      }
-  }
+ 
   
 
   echo "2"
@@ -47,7 +39,16 @@ properties([
   FeaturesSelected << "${it.key}"
       }
   }
-								  
+  
+	 String Group= ""
+  FeaturesSelected.eachWithIndex{
+      feature,i->if(i==0){
+          Group=feature
+      }
+      if(i>0){
+          Group=Group+","+feature
+      }
+  }						  
  
   
   //def stageName=[]
