@@ -123,10 +123,10 @@ pipeline{
                     
                      //   stageName.each{
                             stage("Running ${Group}"){
-                            if("${Group}" != null||"${Group}" != ""){
+                            if("${Group}" != ""){
                                 echo "Inside if loop"
                             }
-                            else if("${Group}" == null||"${Group}" == ""){
+                            else if("${Group}" == ""){
                                 echo "Inside Else Loop"
                             }
 
