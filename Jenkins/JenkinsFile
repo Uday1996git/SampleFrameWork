@@ -29,7 +29,15 @@ properties([
  TearDown: params.TearDown,
  AddTemplate : params.AddTemplate
   ]
-  
+  String Group= ""
+  FeaturesSelected.eachWithIndex{
+      feature,i->if(i==0){
+          Group=feature
+      }
+      if(i>0){
+          Group=Group+","+feature
+      }
+  }
   
 
   echo "2"
@@ -111,15 +119,7 @@ pipeline{
                 stage('read Parameter'){
                 steps{
                     script{
-                    String Group= ""
-							  FeaturesSelected.eachWithIndex{
-							      feature,i->if(i==0){
-							          Group=feature
-							      }
-							      if(i>0){
-							          Group=Group+","+feature
-							      }
-							  }
+                    
                      //   stageName.each{
                             stage("Running ${Group}"){
                                 echo "We are inside the read parameter"
