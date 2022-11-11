@@ -40,7 +40,7 @@ properties([
       }
   }
   
-	 String Group= ""
+	 def Group= ""
   FeaturesSelected.eachWithIndex{
       feature,i->if(i==0){
           Group=feature
