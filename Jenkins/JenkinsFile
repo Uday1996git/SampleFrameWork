@@ -123,6 +123,14 @@ pipeline{
                     
                      //   stageName.each{
                             stage("Running ${Group}"){
+                            if("${Group}"!=null||"${Group}"!=""){
+                                echo "Inside if loop"
+                            }
+                            else if("${Group}"==null||"${Group}"==""){
+                                echo "Inside Else Loop"
+                            }
+
+
                                 echo "We are inside the read parameter"
                             }
 
