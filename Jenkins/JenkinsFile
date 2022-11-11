@@ -45,7 +45,7 @@ properties([
   //def stageName=[]
  // stageName<<Group
 
- echo "${stageName}"
+// echo "${stageName}"
 
 echo"3"
 pipeline{ 
