@@ -66,7 +66,7 @@ pipeline{
                     steps{
                   		  script{
                   		  
-									  echo "${Group}"
+									  //echo "${Group}"
                           if(params.Login){
                         //echo 'Run the login method'
                     }
