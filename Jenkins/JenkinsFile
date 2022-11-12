@@ -121,7 +121,10 @@ pipeline{
                 steps{
                     script{
                     
-                     //   stageName.each{
+                     if(params.Application){
+                         echo "Condition passed"
+                     }
+
                             stage("Running ${Group}"){
                             if("${Group}" != ""){
                                 echo "Inside if loop"
@@ -134,7 +137,7 @@ pipeline{
                                 echo "We are inside the read parameter"
                             }
 
-                        //}
+                       
 
                     }
                 }
