@@ -44,7 +44,7 @@ properties([
   echo "${count}"
 	 def Group= ""
 	if(count>1 && params.Login){
-	FeaturesSelected.remove("Login")
+	FeaturesSelected.remove(0)
 	            
 	           }
 else{
