@@ -36,8 +36,8 @@ properties([
  def FeaturesSelected=[]
  def count =0
   Fee.each{
-  count++
       if(it.value){
+       count++
   FeaturesSelected << "${it.key}"
       }
   }
