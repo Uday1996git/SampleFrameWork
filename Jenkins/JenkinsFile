@@ -44,7 +44,8 @@ properties([
   echo "${count}"
 	 def Group= ""
 	if(count>1 && params.Login){
-	       Group="Login"        
+	FeaturesSelected.remove("Login")
+	            
 	           }
 else{
       FeaturesSelected.eachWithIndex{
