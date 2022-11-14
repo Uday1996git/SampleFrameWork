@@ -43,18 +43,19 @@ properties([
   }
   echo "${count}"
 	 def Group= ""
-	 
-	
-
-  FeaturesSelected.eachWithIndex{
+	if(count>1 && params.Login){
+	       Group="Login"        
+	           }
+else{
+      FeaturesSelected.eachWithIndex{
       feature,i->if(i==0){
           Group=feature
       }
       if(i>0){
           Group=Group+","+feature
       }
-  }						  
- 
+  }
+}
   echo "${Group}"
   //def stageName=[]
  // stageName<<Group
