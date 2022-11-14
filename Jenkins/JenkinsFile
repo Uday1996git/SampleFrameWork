@@ -41,22 +41,23 @@ properties([
   FeaturesSelected << "${it.key}"
       }
   }
-  echo "${count}"
+  
 	 def Group= ""
-	if(count>1 && params.Login){
-	FeaturesSelected.remove(0)
-	            
-	           }
-else{
+
       FeaturesSelected.eachWithIndex{
-      feature,i->if(i==0){
+      feature,i->
+      if(feature=="Login" && count>1 && params.Login){
+          FeaturesSelected.remove(i)
+      }
+
+      if(i==0){
           Group=feature
       }
       if(i>0){
           Group=Group+","+feature
       }
   }
-}
+
   echo "${Group}"
   //def stageName=[]
  // stageName<<Group
