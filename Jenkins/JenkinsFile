@@ -42,14 +42,16 @@ properties([
       }
   }
   
-	 def Group= ""
-
-      FeaturesSelected.eachWithIndex{
+  FeaturesSelected.eachWithIndex{
       feature,i->
       if(feature=="Login" && count>1 && params.Login){
           FeaturesSelected.remove(i)
       }
-
+  }
+  
+	 def Group= ""
+      FeaturesSelected.eachWithIndex{
+      feature,i->
       if(i==0){
           Group=feature
       }
@@ -66,7 +68,6 @@ properties([
 
 echo"3"
 pipeline{ 
-
     agent any    
         stages{ 
           stage('Read Jenkinsfile') {
