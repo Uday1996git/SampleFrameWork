@@ -34,13 +34,18 @@ properties([
 
   echo "2"
  def FeaturesSelected=[]
+ def count =0
   Fee.each{
+  count++
       if(it.value){
   FeaturesSelected << "${it.key}"
       }
   }
-  
+  echo "${count}"
 	 def Group= ""
+	 
+	
+
   FeaturesSelected.eachWithIndex{
       feature,i->if(i==0){
           Group=feature
