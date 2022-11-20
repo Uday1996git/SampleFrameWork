@@ -10,6 +10,7 @@ properties([
 	booleanParam(name:'Application',defaultValue:false, description:'select Application feature to run'),
 	booleanParam(name:'TearDown',defaultValue:false, description:'select TearDown feature to run'),
 	booleanParam(name:'AddTemplate',defaultValue:false, description:'select AddTemplate feature to run'),
+	booleanParam(name:'RunEntireSuite',defaultValue:false, description:'This will run RunEntireSuite'),
 	separator(name:"Refresh the Jenkins File",sectionHeader: "Select the Web to run the tests"),
 	booleanParam(name:'Chrome',defaultValue:false, description:'select Chrome to run'),
 	booleanParam(name:'Firefox',defaultValue:false, description:'select Firefox to run'),
@@ -27,44 +28,52 @@ echo "${params.favColor}"
  Safari:params.Safari
   ]
   echo"1"
- def Fee=[ 
- Login: params.Login,
- Application: params.Application,
- TearDown: params.TearDown,
- AddTemplate : params.AddTemplate
-  ]
+  
+  def Group = params.favColor
+  if(Group=="" && !(params.RunEntireSuite)){
+               Group="RunEntireSuite"    
+               }
+               
+   echo "${Group}"
+
+ //def Fee=[ 
+ //Login: params.Login,
+ //Application: params.Application,
+ //TearDown: params.TearDown,
+ //AddTemplate : params.AddTemplate
+  //]
  
   
 
   echo "2"
- def FeaturesSelected=[]
- def count =0
-  Fee.each{
-      if(it.value){
-       count++
-  FeaturesSelected << "${it.key}"
-      }
-  }
+ //def FeaturesSelected=[]
+ //def count =0
+  //Fee.each{
+    //  if(it.value){
+      // count++
+  //FeaturesSelected << "${it.key}"
+    //  }
+  //}
   
-  FeaturesSelected.eachWithIndex{
-      feature,i->
-      if(feature=="Login" && count>1 && params.Login){
-          FeaturesSelected.remove(i)
-      }
-  }
+ // FeaturesSelected.eachWithIndex{
+   //   feature,i->
+     // if(feature=="Login" && count>1 && params.Login){
+       //   FeaturesSelected.remove(i)
+      //}
+ // }
   
-	 def Group= ""
-      FeaturesSelected.eachWithIndex{
-      feature,i->
-      if(i==0){
-          Group=feature
-      }
-      if(i>0){
-          Group=Group+","+feature
-      }
-  }
+	 //def Group= ""
+      //FeaturesSelected.eachWithIndex{
+      //feature,i->
+      //if(i==0){
+        //  Group=feature
+      //}
+     // if(i>0){
+     //     Group=Group+","+feature
+   //   }
+ // }
 
-  echo "${Group}"
+  //echo "${Group}"
   //def stageName=[]
  // stageName<<Group
 
@@ -112,17 +121,7 @@ pipeline{
 						       stage(it.key){
 						          def browser= "${it.key}"
 						          catchError{
-						             Fee.each{
-						       if(it.value){
-						           stage(it.key){
-						           echo "${browser}"
-						                echo "${it.value}"
-						                echo "${it.key}"
-						        //Groups<< "${it.key}"
-						       }
-						      
-						      }
-						       }  
+						           echo "Inside catch Error"
 						          }
 
 						      
