@@ -13,6 +13,7 @@ properties([
 	booleanParam(name:'Firefox',defaultValue:false, description:'select Firefox to run'),
 	booleanParam(name:'Edge',defaultValue:false, description:'select Edge to run'),
 	booleanParam(name:'Safari',defaultValue:false, description:'select Safari to run'),
+	extendedChoice(name:'Select Multiple',defaultValue='Hi',description='This will allow you to select multiple values from dropdown',choices:['Hi','Hello'])
 	
 	])
  ])
