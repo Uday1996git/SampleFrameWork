@@ -19,7 +19,7 @@ properties([
 	])
 	
  ])
-echo "prams.favColor"
+echo "${prams.favColor}"
  def web =[ 
  Chrome:params.Chrome,
  Firefox:params.Firefox,
