@@ -1,4 +1,4 @@
-pipeline{ 
+
 properties([ 
 	parameters([
 	separator(name:"Refresh the Jenkins File",sectionHeader: "Jnekins File"),
@@ -19,9 +19,6 @@ properties([
 	
  ])
 
- parameters {
-                    extendedChoice(defaultValue: 'blue,green,yellow,blue', description: '', descriptionPropertyValue: 'blue,green,yellow,blue', multiSelectDelimiter: ',', name: 'favColor', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'blue,green,yellow,blue', visibleItemCount: 5)
-                }
  def web =[ 
  Chrome:params.Chrome,
  Firefox:params.Firefox,
@@ -73,7 +70,7 @@ properties([
 // echo "${stageName}"
 
 echo"3"
-
+pipeline{ 
     agent any    
         stages{ 
           stage('Read Jenkinsfile') {
@@ -134,6 +131,10 @@ echo"3"
                 }
                 stage('read Parameter'){
                 steps{
+                
+ parameters {
+                    extendedChoice(defaultValue: 'blue,green,yellow,blue', description: '', descriptionPropertyValue: 'blue,green,yellow,blue', multiSelectDelimiter: ',', name: 'favColor', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'blue,green,yellow,blue', visibleItemCount: 5)
+                }
                     script{
                     
                      if(params.Application){
