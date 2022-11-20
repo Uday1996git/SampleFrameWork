@@ -71,6 +71,9 @@ properties([
 
 echo"3"
 pipeline{ 
+parameters {
+                    extendedChoice(defaultValue: 'blue,green,yellow,blue', description: '', descriptionPropertyValue: 'blue,green,yellow,blue', multiSelectDelimiter: ',', name: 'favColor', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'blue,green,yellow,blue', visibleItemCount: 5)
+                } 
     agent any    
         stages{ 
           stage('Read Jenkinsfile') {
@@ -101,13 +104,7 @@ pipeline{
                     }
                 }
                 stage('Execute the Feature'){
-                input{
-                message "Select the feature to run"
-                 parameters {
-                    extendedChoice(defaultValue: 'blue,green,yellow,blue', description: '', descriptionPropertyValue: 'blue,green,yellow,blue', multiSelectDelimiter: ',', name: 'favColor', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'blue,green,yellow,blue', visibleItemCount: 5)
-                }   
-                }
-                	steps{
+                                	steps{
 						    script{
 						    web.each{
 						    if(it.value){
