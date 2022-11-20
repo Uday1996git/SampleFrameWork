@@ -1,6 +1,6 @@
 properties([ 
 	parameters([
-	extendedChoice(name:"",defaultValue='Hi',description='This will allow you to select multiple values from dropdown'),
+	extendedChoice(name:"",defaultValue="Hi",description="This will allow you to select multiple values from dropdown"),
 	separator(name:"Refresh the Jenkins File",sectionHeader: "Jnekins File"),
 	booleanParam(name: 'Refresh', defaultValue: false, description: 'Read Jenkinsfile and exit.'),
 	string(name: 'Jenkins',description:'Keep this checked if you want to run this project Jenkins file' ),
