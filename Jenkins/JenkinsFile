@@ -1,3 +1,4 @@
+pipeline{ 
 properties([ 
 	parameters([
 	separator(name:"Refresh the Jenkins File",sectionHeader: "Jnekins File"),
@@ -72,7 +73,6 @@ properties([
 // echo "${stageName}"
 
 echo"3"
-pipeline{ 
 
     agent any    
         stages{ 
