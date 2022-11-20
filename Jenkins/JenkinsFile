@@ -5,7 +5,7 @@ properties([
 	booleanParam(name: 'Refresh', defaultValue: false, description: 'Read Jenkinsfile and exit.'),
 	string(name: 'Jenkins',description:'Keep this checked if you want to run this project Jenkins file' ),
 	separator(name:"Refresh the Jenkins File",sectionHeader: "Enter the feature you want to Test"),
-	extendedChoice(defaultValue: 'blue,green,yellow,blue', description: '', descriptionPropertyValue: 'blue,green,yellow,blue', multiSelectDelimiter: ',', name: 'favColor', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'blue,green,yellow,blue', visibleItemCount: 5),
+	extendedChoice(defaultValue: 'blue', description: '', descriptionPropertyValue: 'blue', multiSelectDelimiter: ',', name: 'favColor', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'blue,green,yellow,blue', visibleItemCount: 5),
 	booleanParam(name:'Login',defaultValue:true, description:'select login feature to run'),
 	booleanParam(name:'Application',defaultValue:false, description:'select Application feature to run'),
 	booleanParam(name:'TearDown',defaultValue:false, description:'select TearDown feature to run'),
