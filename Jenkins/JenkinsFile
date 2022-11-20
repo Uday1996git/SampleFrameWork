@@ -5,12 +5,12 @@ properties([
 	booleanParam(name: 'Refresh', defaultValue: false, description: 'Read Jenkinsfile and exit.'),
 	string(name: 'Jenkins',description:'Keep this checked if you want to run this project Jenkins file' ),
 	separator(name:"Refresh the Jenkins File",sectionHeader: "Enter the feature you want to Test"),
-	extendedChoice(defaultValue: 'blue', description: '', descriptionPropertyValue: 'blue', multiSelectDelimiter: ',', name: 'favColor', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'blue,green,yellow,black,orange,red', visibleItemCount: 5),
+	extendedChoice(defaultValue: 'RunEntireSuite', description: '', descriptionPropertyValue: 'RunEntireSuite', multiSelectDelimiter: ',', name: 'favColor', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'RunEntireSuite,blue,green,yellow,black,orange,red', visibleItemCount: 5),
 	booleanParam(name:'Login',defaultValue:true, description:'select login feature to run'),
 	booleanParam(name:'Application',defaultValue:false, description:'select Application feature to run'),
 	booleanParam(name:'TearDown',defaultValue:false, description:'select TearDown feature to run'),
 	booleanParam(name:'AddTemplate',defaultValue:false, description:'select AddTemplate feature to run'),
-	booleanParam(name:'RunEntireSuite',defaultValue:false, description:'This will run RunEntireSuite'),
+	//booleanParam(name:'RunEntireSuite',defaultValue:false, description:'This will run RunEntireSuite'),
 	separator(name:"Refresh the Jenkins File",sectionHeader: "Select the Web to run the tests"),
 	booleanParam(name:'Chrome',defaultValue:false, description:'select Chrome to run'),
 	booleanParam(name:'Firefox',defaultValue:false, description:'select Firefox to run'),
@@ -35,6 +35,11 @@ echo "${params.favColor}"
                }
                
    echo "${Group}"
+   
+   def features=[]
+   features=Group.split(',')
+   echo "${features}"
+   
 
  //def Fee=[ 
  //Login: params.Login,
