@@ -34,7 +34,8 @@ echo "${params.favColor}"
    features=Group.split(',')   
    if(features.contains("RunEntireSuite") && features.size>1){
    features -= "RunEntireSuite"
-   def Group = features.join(",")
+   def Groups = features.join(",")
+   Group = Groups
    echo "${Group}"
    }
    else{
