@@ -30,15 +30,16 @@ echo "${params.favColor}"
   echo"1"
   
   def Group = params.favColor
-  if(Group=="" && !(params.RunEntireSuite)){
-               Group="RunEntireSuite"    
-               }
-               
-   echo "${Group}"
-   
    def features=[]
-   features=Group.split(',')
-   echo "${features}"
+   features=Group.split(',')   
+   if(features.contains("RunEntireSuite")){
+       echo "This will run entire suite"
+   }
+   else{
+       echo "This will run ${Group}"
+   }
+
+
    
 
  //def Fee=[ 
