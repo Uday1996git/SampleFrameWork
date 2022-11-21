@@ -32,7 +32,7 @@ echo "${params.favColor}"
   def Group = params.favColor
    def features=[]
    features=Group.split(',')   
-   if(features.contains("RunEntireSuite") && features.size>1){
+   if(features.contains("RunEntireSuite") && features.size()>1){
    features -= "RunEntireSuite"
    def Groups = features.join(",")
    Group = Groups
