@@ -70,7 +70,7 @@ GroupsSelected.each{
                                                     }        
         }
  }
-  echo "2"
+  echo "${GroupsSelected}"
  //def FeaturesSelected=[]
  //def count =0
   //Fee.each{
