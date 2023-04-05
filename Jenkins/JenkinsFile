@@ -40,7 +40,16 @@ echo "${params.favColor}"
    }
    else{
       echo "${Group}"
+   } 
+   
+   def Test = [ "A", "B","C" ]
+   Test.each{
+       if(Test.contains("A")){
+           echo "Contains worked"
+       }
+
    }
+
 
 
    
@@ -94,6 +103,10 @@ pipeline{
                   //  extendedChoice(defaultValue: 'blue,green,yellow,blue', description: '', descriptionPropertyValue: 'blue,green,yellow,blue', multiSelectDelimiter: ',', name: 'favColor', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_MULTI_SELECT', value: 'blue,green,yellow,blue', visibleItemCount: 5)
                 //} 
     agent any    
+    environment{
+        LOGIN_KEY = credentials('Uday1996')
+    }
+
         stages{ 
           stage('Read Jenkinsfile') {
             when {
