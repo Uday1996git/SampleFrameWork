@@ -66,7 +66,7 @@ GroupsSelected.each{
 	}
    else if (it!="Login"){
              if(it=="Application" && GroupsSelectedSize>1 && params.RunEntireSuite){
-                                            GroupsSelected -= "RunEntireSuite"            
+                                            GroupsSelected -= "Application"            
                                                     }        
         }
  }
