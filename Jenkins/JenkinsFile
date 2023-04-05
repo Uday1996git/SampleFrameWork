@@ -41,28 +41,35 @@ echo "${params.favColor}"
    else{
       echo "${Group}"
    } 
-   
-   def Test = [ "A", "B","C" ]
-       if(Test.contains("A")){
-           echo "Contains worked"
-           Test.clear()
-           Test<<"A"
-       }
-       echo "${Test}"
 
 
-
-   
-
- //def Fee=[ 
- //Login: params.Login,
- //Application: params.Application,
- //TearDown: params.TearDown,
- //AddTemplate : params.AddTemplate
-  //]
- 
+def Fee=[ 
+ Login: params.Login,
+ Application: params.Application,
+ TearDown: params.TearDown,
+ AddTemplate : params.AddTemplate
+  ]
   
-
+  def GroupsSelectedSize=0
+ def GroupsSelected=[]
+ Fee.each{
+     if(it.value){
+     GroupsSelectedSize++
+         GroupsSelected<<"${it.key}"
+     }
+ }
+  
+GroupsSelected.each{
+    if(it=="Smoke"){
+	    GroupsSelected.clear()
+	    GroupsSelected<<"Smoke"
+	}
+   else if (it!="Smoke"){
+             if(it=="RunEntireSuite" && GroupsSelectedSize>1 && params.RunEntireSuite){
+                                            GroupsSelected -= "RunEntireSuite"            
+                                                    }        
+        }
+ }
   echo "2"
  //def FeaturesSelected=[]
  //def count =0
