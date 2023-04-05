@@ -45,7 +45,10 @@ echo "${params.favColor}"
    def Test = [ "A", "B","C" ]
        if(Test.contains("A")){
            echo "Contains worked"
+           Test.clear()
+           Test<<"A"
        }
+       echo "${Test}"
 
 
 
