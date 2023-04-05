@@ -43,12 +43,9 @@ echo "${params.favColor}"
    } 
    
    def Test = [ "A", "B","C" ]
-   Test.each{
        if(Test.contains("A")){
            echo "Contains worked"
        }
-
-   }
 
 
 
