@@ -60,12 +60,12 @@ def Fee=[
  }
   
 GroupsSelected.each{
-    if(it=="Smoke"){
+    if(it=="Login"){
 	    GroupsSelected.clear()
 	    GroupsSelected<<"Smoke"
 	}
-   else if (it!="Smoke"){
-             if(it=="RunEntireSuite" && GroupsSelectedSize>1 && params.RunEntireSuite){
+   else if (it!="Login"){
+             if(it=="Application" && GroupsSelectedSize>1 && params.RunEntireSuite){
                                             GroupsSelected -= "RunEntireSuite"            
                                                     }        
         }
